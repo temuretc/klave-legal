@@ -3,162 +3,124 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
 <title>Klave Legal</title>
 <meta name="description" content="Terms of Service and Privacy Policy for Klave.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #EEF2EF;
-    --surface: #FBFCFB;
-    --ink: #14302B;
-    --muted: #4F6560;
-    --line: #CBD6D1;
-    --brand: #14463F;
-    --brand-ink: #F4F8F6;
-    --brass: #B7832F;
-    --note-bg: #F6EBD3;
-    --note-ink: #5A3F0E;
-    --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
-    --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --bg: #FAF7F2;
+    --surface: #FFFFFF;
+    --ink: #2A2220;
+    --muted: #7A6A62;
+    --line: #E6DDD3;
+    --accent: #DA7858;
+    --accent-dark: #B8532F;
+    --note-bg: #FBEBE3;
+    --dark: #2A2220;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --bg: #0F1B18;
-      --surface: #15251F;
-      --ink: #E4EEEA;
-      --muted: #9DB2AB;
-      --line: #274039;
-      --brand: #5FB8A5;
-      --brand-ink: #0F1B18;
-      --brass: #D9A84E;
-      --note-bg: #2D2511;
-      --note-ink: #EBCF93;
-    }
-  }
-
   *, *::before, *::after { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 90px; }
   body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 1.0625rem;
-    line-height: 1.75;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sans); font-size: 1.0625rem; line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-  a { color: var(--brand); text-underline-offset: 3px; }
-  :focus-visible { outline: 3px solid var(--brass); outline-offset: 3px; border-radius: 4px; }
+  a { color: var(--accent-dark); text-underline-offset: 3px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
-  /* reading progress */
   .progress {
     position: fixed; inset: 0 0 auto 0; height: 4px; z-index: 50;
-    background: var(--brass);
-    transform: scaleX(0); transform-origin: left;
+    background: var(--accent); transform: scaleX(0); transform-origin: left;
   }
 
-  /* top bar */
   .bar {
     position: sticky; top: 0; z-index: 40;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--line);
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid var(--line);
   }
   .bar-inner {
-    max-width: 1080px; margin: 0 auto; padding: 14px 24px;
+    max-width: 1080px; margin: 0 auto; padding: 12px 24px;
     display: flex; align-items: center; justify-content: space-between; gap: 16px;
   }
   .brand {
-    display: flex; align-items: center; gap: 10px;
-    font-family: var(--display); font-weight: 700; font-size: 1.25rem;
+    font-family: var(--serif); font-weight: 700; font-size: 1.6rem; letter-spacing: -0.01em;
     color: var(--ink); text-decoration: none;
   }
-  .brand svg { width: 28px; height: 28px; }
   .switch {
-    display: inline-flex; padding: 4px; gap: 4px;
+    display: inline-flex; gap: 6px; padding: 5px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
   }
   .switch a {
-    font-family: var(--display); font-weight: 500; font-size: .95rem;
-    padding: 7px 16px; border-radius: 999px; text-decoration: none;
-    color: var(--muted);
+    font-weight: 500; font-size: .95rem; padding: 8px 18px; border-radius: 999px;
+    text-decoration: none; color: var(--muted);
     transition: background .25s ease, color .25s ease;
   }
-  .switch a[aria-current="true"] { background: var(--brand); color: var(--brand-ink); }
+  .switch a[aria-current="true"] { background: var(--accent); color: #fff; }
 
-  /* hero */
-  .hero { max-width: 1080px; margin: 0 auto; padding: 72px 24px 48px; }
+  .hero { max-width: 760px; margin: 0 auto; padding: 80px 24px 56px; text-align: center; }
   .hero h1 {
-    font-family: var(--display); font-weight: 700;
-    font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.02; letter-spacing: -0.03em;
-    margin: 0 0 20px; max-width: 14ch;
-  }
-  .hero h1 span { display: block; overflow: hidden; }
-  .hero h1 span i {
-    display: block; font-style: normal;
+    font-family: var(--serif); font-weight: 700; letter-spacing: -0.02em;
+    font-size: clamp(2.6rem, 8vw, 4.6rem); line-height: 1.05; margin: 0 0 22px;
     animation: rise .9s cubic-bezier(.2,.8,.2,1) both;
   }
-  .hero h1 span:nth-child(2) i { animation-delay: .12s; }
-  .hero p { max-width: 52ch; color: var(--muted); margin: 0 0 8px; }
-  .hero small { color: var(--muted); font-size: .95rem; }
-  .key-mark { position: absolute; right: max(24px, calc(50% - 540px + 24px)); top: 90px; width: 150px; color: var(--brass); }
-  .key-mark svg { width: 100%; animation: turn 1.4s cubic-bezier(.3,.7,.2,1) .3s both; transform-origin: 28% 50%; }
-  @keyframes rise { from { transform: translateY(110%); } to { transform: none; } }
-  @keyframes turn { from { transform: rotate(-70deg); opacity: 0; } to { transform: none; opacity: 1; } }
+  .hero p { color: var(--muted); max-width: 48ch; margin: 0 auto 10px; }
+  .hero small { color: var(--muted); }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
 
-  /* layout */
   .layout {
     max-width: 1080px; margin: 0 auto; padding: 0 24px 96px;
     display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 56px;
   }
-  .toc { position: sticky; top: 96px; align-self: start; font-family: var(--display); font-size: .95rem; }
-  .toc h2 { font-size: 1rem; margin: 0 0 10px; color: var(--ink); }
-  .toc ul { list-style: none; margin: 0 0 24px; padding: 0; border-left: 2px solid var(--line); }
+  .toc { position: sticky; top: 100px; align-self: start; font-size: .95rem; }
+  .toc h2 { font-family: var(--serif); font-size: 1.2rem; margin: 0 0 8px; }
+  .toc ul { list-style: none; margin: 0 0 26px; padding: 0; border-left: 2px solid var(--line); }
   .toc a {
     display: block; padding: 5px 0 5px 14px; margin-left: -2px; border-left: 2px solid transparent;
     color: var(--muted); text-decoration: none; line-height: 1.35;
     transition: color .2s ease, border-color .2s ease;
   }
   .toc a:hover { color: var(--ink); }
-  .toc a.active { color: var(--ink); border-left-color: var(--brass); font-weight: 700; }
+  .toc a.active { color: var(--ink); border-left-color: var(--accent); font-weight: 700; }
 
   article { min-width: 0; }
   .doc {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 28px;
     padding: clamp(24px, 5vw, 52px); margin-bottom: 32px;
   }
   .doc h2 {
-    font-family: var(--display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.5rem);
-    letter-spacing: -0.02em; line-height: 1.1; margin: 0 0 6px;
+    font-family: var(--serif); font-weight: 700; letter-spacing: -0.02em;
+    font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.08; margin: 0 0 6px;
   }
-  .doc .meta { color: var(--muted); font-size: .95rem; margin: 0 0 28px; }
-  .doc h3 {
-    font-family: var(--display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.01em;
-    margin: 36px 0 8px;
-  }
+  .doc .meta { color: var(--muted); margin: 0 0 28px; }
+  .doc h3 { font-family: var(--serif); font-weight: 700; font-size: 1.45rem; margin: 36px 0 8px; }
   .doc p { margin: 0 0 14px; max-width: 68ch; }
-  .doc ul { margin: 0 0 14px; padding-left: 22px; max-width: 68ch; }
-  .doc li { margin-bottom: 6px; }
   .todo {
-    background: var(--note-bg); color: var(--note-ink);
-    border-left: 4px solid var(--brass); border-radius: 8px;
-    padding: 12px 16px; font-size: .98rem; margin: 0 0 14px; max-width: 68ch;
+    background: var(--note-bg); border-left: 4px solid var(--accent);
+    border-radius: 12px; padding: 12px 16px; font-size: .98rem; max-width: 68ch;
   }
+
+  .cta {
+    display: inline-block; margin-top: 8px; padding: 12px 26px; border-radius: 999px;
+    background: var(--dark); color: #fff; font-weight: 500; text-decoration: none;
+    transition: transform .2s ease;
+  }
+  .cta:hover { transform: translateY(-2px); }
 
   footer { border-top: 1px solid var(--line); }
   footer div {
-    max-width: 1080px; margin: 0 auto; padding: 28px 24px;
-    color: var(--muted); font-size: .95rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;
+    max-width: 1080px; margin: 0 auto; padding: 28px 24px; color: var(--muted);
+    font-size: .95rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px;
   }
 
   @media (max-width: 860px) {
-    .layout { grid-template-columns: 1fr; gap: 0; }
+    .layout { grid-template-columns: 1fr; }
     .toc { display: none; }
-    .key-mark { display: none; }
     .hero { padding-top: 48px; }
-    .brand span { display: none; }
   }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
@@ -171,13 +133,7 @@
 
 <header class="bar">
   <div class="bar-inner">
-    <a class="brand" href="#top" aria-label="Klave legal home">
-      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <circle cx="11" cy="16" r="7" stroke="var(--brass)" stroke-width="3"/>
-        <path d="M18 16h12M25 16v5M29 16v4" stroke="var(--brass)" stroke-width="3" stroke-linecap="round"/>
-      </svg>
-      <span>Klave</span>
-    </a>
+    <a class="brand" href="#top">Klave</a>
     <nav class="switch" aria-label="Legal documents">
       <a href="#terms" data-link="terms">Terms of Service</a>
       <a href="#privacy" data-link="privacy">Privacy Policy</a>
@@ -186,14 +142,8 @@
 </header>
 
 <div id="top"></div>
-<section class="hero" style="position:relative">
-  <div class="key-mark" aria-hidden="true">
-    <svg viewBox="0 0 150 60" fill="none">
-      <circle cx="30" cy="30" r="22" stroke="currentColor" stroke-width="9"/>
-      <path d="M52 30h86M112 30v18M134 30v14" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
-    </svg>
-  </div>
-  <h1><span><i>The rules and</i></span><span><i>your data, in plain words.</i></span></h1>
+<section class="hero">
+  <h1>Your rules and your data, in plain words.</h1>
   <p>These documents explain how Klave works, what we ask of you, and what we do with your information.</p>
   <small>Last updated: 21 October 2026</small>
 </section>
@@ -263,27 +213,23 @@
   </article>
 </main>
 
-<footer><div><span>© 2026 Klave</span><span>Questions? Use the contact details above.</span></div></footer>
+<footer><div><span>© 2026 Klave</span><a href="#top">Back to top</a></div></footer>
 
 <script>
 (function () {
   var bar = document.getElementById('progress');
-  function onScroll() {
-    var h = document.documentElement;
-    var max = h.scrollHeight - h.clientHeight;
-    bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
   var links = document.querySelectorAll('[data-spy]');
   var switchLinks = document.querySelectorAll('[data-link]');
   var heads = Array.prototype.slice.call(document.querySelectorAll('.doc h3'));
   var docs = document.querySelectorAll('[data-doc]');
 
   function update() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.transform = 'scaleX(' + (max > 0 ? h.scrollTop / max : 0) + ')';
+
     var y = window.scrollY + 140, current = null, currentDoc = 'terms';
-    heads.forEach(function (h) { if (h.offsetTop + h.offsetParent.offsetTop <= y) current = h.id; });
+    heads.forEach(function (el) { if (el.offsetTop + el.offsetParent.offsetTop <= y) current = el.id; });
     docs.forEach(function (d) { if (d.offsetTop <= y) currentDoc = d.dataset.doc; });
     links.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     switchLinks.forEach(function (a) { a.setAttribute('aria-current', a.dataset.link === currentDoc ? 'true' : 'false'); });
